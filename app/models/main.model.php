@@ -4,7 +4,8 @@ class Main extends Model
 {
   public function __construct()
   {
-    $this->table('mahasiswa');
-    $this->select()->get();
+     parent::__construct();
+    $this->table('table_name');
+    $this->setIdColumn('id_name');
   }
 }

@@ -111,9 +111,9 @@ public function index() //method default page ('page_name/index')
 }
 ```
 
---> buatlah file untuk views page **app/views/page.view.php**
+2.  buatlah file untuk views page **app/views/page.view.php**
 
--> **head.view.php** -> sesuaikan dengan path di HomeController (components/head) , contoh :
+3.  **head.view.php** -> sesuaikan dengan path di HomeController (views/components/head) , contoh :
 
 ```html
 <!DOCTYPE html>
@@ -129,3 +129,151 @@ public function index() //method default page ('page_name/index')
   <body></body>
 </html>
 ```
+
+4. **navbar.view.php** -> sesuaikan dengan path di HomeController (views/components/navbar) , contoh :
+
+```html
+<nav>
+  <div class="row">
+    <h2>HIMASAR</h2>
+  </div>
+  <div class="row">
+    <ul>
+      <a class="<?php echo $active == 'home' ? 'active' : ''; ?>" href="<?= BASE_PATH ?>home">HOME</a>
+    </ul>
+    <ul>
+      <a class="<?php echo $active == 'about' ? 'active' : ''; ?>" href="<?= BASE_PATH ?>about">ABOUT</a>
+    </ul>
+    <ul>
+      <a class="<?php echo $active == 'contact' ? 'active' : ''; ?>" href="<?= BASE_PATH ?>contact">CONTACT</a>
+    </ul>
+    </ul>
+    <ul style="margin-left: 400px;">
+      <a href="<?= BASE_PATH ?>login/logout">LOGOUT</a>
+    </ul>
+  </div>
+</nav>
+```
+
+5.  **footer.view.php** -> sesuaikan dengan path di HomeController (views/components/footer) , contoh :
+
+```html
+</body>
+
+<!-- Js Source Src="<?= BASE_ASSETS ?>assets/your_js_assets" -->
+
+</html>
+```
+
+6.  **home.view.php** -> sesuaikan dengan path di HomeController (views/home) , contoh :
+
+```html
+</body>
+
+<!-- Js Source Src="<?= BASE_ASSETS ?>assets/your_js_assets" -->
+
+</html>
+```
+
+###### Penambahan Model
+
+1. inisiasi
+
+```php
+public function your_method()
+  {
+    $this->model('model_name');
+  }
+```
+
+2. Directori Model di **app/models/model_name.model.php**
+
+3. model Classes inisiasi
+
+```php
+<?php
+
+class Model_name extends Model
+{
+  public function __construct()
+  {
+    parent::__construct();
+    $this->table('table_name');
+    $this->setIdColumn('id_table_name');
+  }
+}
+```
+
+####### METHOD CRUD
+
+1. **`table($table)`**
+
+   - **Deskripsi**: Menentukan nama tabel yang akan digunakan dalam query.
+   - **Contoh Penggunaan**: `$model->table('mahasiswa')`
+
+2. **`setPrimaryKey($primaryKey)`**
+
+   - **Deskripsi**: Menentukan nama kolom yang merupakan primary key pada tabel.
+   - **Contoh Penggunaan**: `$model->setPrimaryKey('id_mahasiswa')`
+
+3. **`select($columns = "*")`**
+
+   - **Deskripsi**: Menentukan kolom-kolom yang akan dipilih dalam query SELECT.
+   - **Contoh Penggunaan**: `$model->select('nama, nim, jurusan')`
+
+4. **`where($conditions = [])`**
+
+   - **Deskripsi**: Menentukan kondisi untuk query WHERE.
+   - **Contoh Penggunaan**: `$model->where(['id_mahasiswa' => 1, 'jurusan' => 'Teknik Informatika'])`
+
+5. **`orderBy($column, $order = "ASC")`**
+
+   - **Deskripsi**: Menentukan urutan pengurutan data (ORDER BY).
+   - **Contoh Penggunaan**: `$model->orderBy('nama', 'DESC')`
+
+6. **`limit($limit, $offset = 0)`**
+
+   - **Deskripsi**: Menentukan batasan jumlah data yang diambil (LIMIT).
+   - **Contoh Penggunaan**: `$model->limit(10, 20)`
+
+7. **`join($table, $on, $type = 'INNER')`**
+
+   - **Deskripsi**: Menambahkan operasi JOIN pada query.
+   - **Contoh Penggunaan**: `$model->join('jurusan', 'mahasiswa.jurusan = jurusan.id_jurusan')`
+
+8. **`get()`**
+
+   - **Deskripsi**: Menjalankan query SELECT dan mengembalikan hasilnya.
+   - **Contoh Penggunaan**: `$data = $model->get()`
+
+9. **`create($data)`**
+
+   - **Deskripsi**: Menambahkan data baru ke dalam tabel.
+   - **Contoh Penggunaan**: `$model->create(['nama' => 'John Doe', 'nim' => 'NIM123'])`
+
+10. **`update($data)`**
+
+    - **Deskripsi**: Memperbarui data berdasarkan kondisi yang telah ditentukan.
+    - **Contoh Penggunaan**: `$model->where(['id' => 1])->update(['nama' => 'New Name'])`
+
+11. **`delete()`**
+
+    - **Deskripsi**: Menghapus data berdasarkan kondisi yang telah ditentukan.
+    - **Contoh Penggunaan**: `$model->where(['id' => 1])->delete()`
+
+12. **`find($id)`**
+
+    - **Deskripsi**: Mencari data berdasarkan nilai primary key.
+    - **Contoh Penggunaan**: `$data = $model->find(1)`
+
+13. **`count()`**
+
+    - **Deskripsi**: Menghitung jumlah data berdasarkan kondisi yang telah ditentukan.
+    - **Contoh Penggunaan**: `$count = $model->where(['status' => 'active'])->count()`
+
+14. **`uploadAvatar($file)`**
+
+    - **Deskripsi**: Mengunggah file avatar ke direktori dan mengembalikan nama file yang diunggah.
+    - **Contoh Penggunaan**: `$avatar = $model->uploadAvatar($_FILES['avatar'])`
+
+Terima kasih telah menggunakan proyek PHP MVC sederhana ini! Jangan ragu untuk berkreasi dan mengembangkan lebih lanjut. Happy coding! 🚀
