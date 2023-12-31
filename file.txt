@@ -1,0 +1,94 @@
+// Buat objek CustomModel
+$customModel = new CustomModel();
+
+// Contoh pengambilan data tanpa filter
+$dataAll = $customModel->table('your_table_name')->select()->get();
+var_dump($dataAll);
+
+// Contoh pengambilan data dengan filter where
+$dataFiltered = $customModel->table('your_table_name')->where(['column1' => 'value1', 'column2' => 'value2'])->get();
+var_dump($dataFiltered);
+
+// Contoh penambahan data baru
+$newData = ['column1' => 'new_value1', 'column2' => 'new_value2'];
+$customModel->table('your_table_name')->create($newData);
+
+// Contoh pencarian data berdasarkan ID
+$foundData = $customModel->table('your_table_name')->find(1);
+var_dump($foundData);
+
+// Contoh pembaruan data berdasarkan ID
+$updateData = ['column1' => 'updated_value'];
+$customModel->table('your_table_name')->update(1, $updateData);
+
+// Contoh penghapusan data berdasarkan ID
+$customModel->table('your_table_name')->delete(1);
+
+Select
+$model = new Model();
+$data = $model->table('nama_tabel')
+    ->select('kolom1, kolom2')
+    ->where(['kolom3' => 'nilai'])
+    ->orderBy('kolom1', 'DESC')
+    ->limit(10)
+    ->get();
+
+// Output hasil query
+var_dump($data);
+
+INSERT 
+$model = new Model();
+$created = $model->table('nama_tabel')
+    ->create(['kolom1' => 'nilai1', 'kolom2' => 'nilai2']);
+
+// Output status berhasil atau tidak
+var_dump($created);
+
+UPDATE 
+$model = new Model();
+$updated = $model->table('nama_tabel')
+    ->where(['kolom1' => 'nilai1'])
+    ->update(['kolom2' => 'nilai_baru']);
+
+// Output status berhasil atau tidak
+var_dump($updated);
+
+DELETE 
+$model = new Model();
+$deleted = $model->table('nama_tabel')
+    ->where(['kolom1' => 'nilai1'])
+    ->delete();
+
+// Output status berhasil atau tidak
+var_dump($deleted);
+
+SELECT ID 
+$model = new Model();
+$record = $model->table('nama_tabel')
+    ->select()
+    ->where(['id' => 1])
+    ->find(1);
+
+// Output hasil query
+var_dump($record);
+
+COUNT 
+$model = new Model();
+$record = $model->table('nama_tabel')
+    ->select()
+    ->where(['id' => 1])
+    ->find(1);
+
+// Output hasil query
+var_dump($record);
+
+JOIN 
+$model = new Model();
+$data = $model->table('tabel_utama')
+    ->select('tabel_utama.*, tabel_terkait.kolom_terkait')
+    ->join('tabel_terkait', 'tabel_utama.id = tabel_terkait.tabel_utama_id')
+    ->get();
+
+// Output hasil query
+var_dump($data);
+
