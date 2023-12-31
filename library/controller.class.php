@@ -2,12 +2,12 @@
 
 class Controller
 {
+  protected $msg = array();
 
   protected function view($viewName)
   {
     return new View($viewName);
   }
-
 
   protected function model($modelName)
   {

@@ -29,7 +29,7 @@ class LoginController extends MainController
       'password' => $_POST['password']
     ];
     // var_dump($data);
-    $this->redirectData('home', $data);
+    $this->redirectData('home', $data,);
     // $this->sendData('home', $data);
   }
 }

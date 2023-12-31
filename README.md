@@ -52,10 +52,13 @@ php_Mvc/
 4. **library/MainController.php**
    Inisialisasi antar Tampilan dan pengiriman data ke tampilan , juga mengatur susunan page yang terdiri dari
    ```plaintext
-   ---| head |---
-   ---| navbar |---
-   ---| body |---
-   ---| footer |---
+   ----| head |-----
+   -----------------
+   ----| navbar |---
+   -----------------
+   ----| body |-----
+   -----------------
+   ----| footer |---
    ```
 5. **config/config.php**
    Directory ini berisi Constanta Utama dalam menyediakan root dan configurasi database
@@ -84,7 +87,7 @@ HomeController.php
 
 --> inisialisi file **HomeController.php**
 
-```plaintext
+```php
 <?php
 use library\MainController;
 class HomeController extends MainController
@@ -112,16 +115,17 @@ public function index() //method default page ('page_name/index')
 
 -> **head.view.php** -> sesuaikan dengan path di HomeController (components/head) , contoh :
 
-```plaintext
+```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?= $data['title'] ?></title>
-<!-- ASSETS -->
-<!-- <link rel="stylesheet" href="<?= BASE_ASSETS ?>your_css_assets"> -->
-<link rel="stylesheet" href="<?= BASE_ASSETS ?>assets/css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><?= $data['title'] ?></title>
+    <!-- ASSETS -->
+    <!-- <link rel="stylesheet" href="<?= BASE_ASSETS ?>your_css_assets"> -->
+    <link rel="stylesheet" href="<?= BASE_ASSETS ?>assets/css/style.css" />
+  </head>
+  <body></body>
+</html>
 ```

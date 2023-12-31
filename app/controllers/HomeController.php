@@ -29,6 +29,6 @@ class HomeController extends MainController
     ];
 
 
-    $this->contentIn('home', $data);
+    $this->contentIn('home', $data, 'Helooo');
   }
 }

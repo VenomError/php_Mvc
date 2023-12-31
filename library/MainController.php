@@ -28,15 +28,13 @@ class MainController extends Controller
     $this->navLoc = $viewName;
     return $this;
   }
-  public function contentIn($viewName, $data = array())
+  public function contentIn($viewName, $data = array(), $msg = '')
   {
-
-
-
 
     $view = $this->view($viewName);
     $view->bind('data', $data);
     $view->bind('active', ucfirst($viewName));
+    $view->bind('msg', $msg);
 
 
 

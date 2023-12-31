@@ -9,5 +9,5 @@
         </p>
       </div>
     <?php } ?>
-    HOME PAGE
+    HOME PAGE <?= $msg ?>
   </main>
