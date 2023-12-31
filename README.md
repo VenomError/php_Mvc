@@ -168,11 +168,7 @@ public function index() //method default page ('page_name/index')
 6.  **home.view.php** -> sesuaikan dengan path di HomeController (views/home) , contoh :
 
 ```html
-</body>
-
-<!-- Js Source Src="<?= BASE_ASSETS ?>assets/your_js_assets" -->
-
-</html>
+//Youre Kode Here
 ```
 
 ###### Penambahan Model
