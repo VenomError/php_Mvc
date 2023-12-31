@@ -16,4 +16,3 @@ Proyek PHP MVC sederhana untuk memulai pengembangan web Anda. Proyek ini memanfa
    ```bash
    git clone https://github.com/nama-username/repo.git
    ```
-   > > > > > > > master
