@@ -28,7 +28,7 @@ class HomeController extends MainController
       "title" => "Dashboard",
     ];
 
-
     $this->contentIn('home', $data, 'Helooo');
+    $this->model('main');
   }
 }

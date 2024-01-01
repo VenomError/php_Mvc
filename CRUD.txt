@@ -1,0 +1,83 @@
+table Method:
+
+php
+Copy code
+$model = new Model();
+$model->table('your_table_name');
+setIdColumn Method:
+
+php
+Copy code
+$model->setIdColumn('your_primary_key_column');
+select Method:
+
+php
+Copy code
+$model->select('column1, column2')->get();
+where Method:
+
+php
+Copy code
+$model->where(['column' => 'value'])->get();
+orderBy Method:
+
+php
+Copy code
+$model->orderBy('column', 'DESC')->get();
+limit Method:
+
+php
+Copy code
+$model->limit(10, 0)->get(); // Limit 10 records starting from offset 0
+join Method:
+
+php
+Copy code
+$model->join('other_table', 'table.column = other_table.column')->get();
+get Method:
+
+php
+Copy code
+$result = $model->get();
+print_r($result);
+create Method:
+
+php
+Copy code
+$data = ['column1' => 'value1', 'column2' => 'value2'];
+$model->create($data);
+update Method:
+
+php
+Copy code
+$data = ['column1' => 'new_value1', 'column2' => 'new_value2'];
+$model->where(['id' => 1])->update($data);
+delete Method:
+
+php
+Copy code
+$model->where(['id' => 1])->delete();
+find Method:
+
+php
+Copy code
+$result = $model->find(1);
+print_r($result);
+count Method:
+
+php
+Copy code
+$count = $model->count();
+echo $count;
+uploadAvatar Method:
+
+php
+Copy code
+$file = $_FILES['avatar']; // Assuming you're handling file upload through a form
+$result = $model->uploadAvatar($file);
+
+if ($result !== false) {
+    echo "Avatar uploaded successfully. Unique filename: $result";
+} else {
+    echo "Avatar upload failed.";
+}

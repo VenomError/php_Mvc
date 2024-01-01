@@ -26,6 +26,8 @@ class Controller
   }
 
 
+
+
   public function back()
   {
     echo "
@@ -60,5 +62,16 @@ class Controller
   protected function validate($data)
   {
     return htmlentities(trim(strip_tags($data)));
+  }
+
+  protected function errorMsg($viewName, $msg = '')
+  {
+    $view = $this->view($viewName);
+    $view->bind('errorMsg', $msg);
+  }
+  protected function sendMsg($viewName, $msg = '')
+  {
+    $view = $this->view($viewName);
+    $view->bind('sendMsg', $msg);
   }
 }

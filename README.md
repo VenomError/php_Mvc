@@ -61,7 +61,7 @@ php_Mvc/
    ----| footer |---
    ```
 5. **config/config.php**
-   Directory ini berisi Constanta Utama dalam menyediakan root dan configurasi database
+   Directory ini berisi Constanta  Utama dalam menyediakan root dan configurasi database
 
    ```plaintext
    <?php
@@ -200,7 +200,7 @@ class Model_name extends Model
 }
 ```
 
-####### METHOD CRUD
+####### METHOD CRUD TES
 
 1. **`table($table)`**
 
